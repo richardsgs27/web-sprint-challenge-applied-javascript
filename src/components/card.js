@@ -1,3 +1,5 @@
+
+
 const Card = (article) => {
   // TASK 5
   // ---------------------
@@ -17,6 +19,35 @@ const Card = (article) => {
   //   </div>
   // </div>
   //
+
+  const card = document.createElement("div");
+  const headline = document.createElement("div");
+  const author = document.createElement("div");
+  const imgCont = document.createElement("div");
+  const img = document.createElement("img");
+  const authorName = document.createElement("span");
+
+  card.classList.add("card");
+  headline.classList.add("headline");
+  author.classList.add("author");
+  imgCont.classList.add("img-container");
+
+  card.appendChild(headline);
+  card.appendChild(author);
+  author.appendChild(imgCont);
+  author.appendChild(authorName);
+  imgCont.appendChild(img);
+
+  headline.textContent = article.headline;
+  authorName.textContent = `By ${article.name}`;
+  img.setAttribute('src',`${article.authorPhoto}`);
+
+  card.addEventListener("click", function(event){
+    console.log(headline);
+  });
+
+  return card;
+
 }
 
 const cardAppender = (selector) => {
